@@ -14,7 +14,11 @@ const write = ({ time, date, count }) => {
       const options = { upsert: true };
 
       collection.updateOne(query, update, options, (err, result) => {
-        if (err) throw err;
+        if (err) {
+          console.log("an error occurred at collection.updateOne");
+          console.log(err);
+          throw err;
+        }
         console.log(`${result.matchedCount} document(s) matched the query.`);
         console.log(`${result.modifiedCount} document(s) was/were updated.`);
       });
