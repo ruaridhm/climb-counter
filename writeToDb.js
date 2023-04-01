@@ -7,7 +7,7 @@ const write = ({ time, date, count }) => {
 
   async function run() {
     try {
-      const database = client.db("data");
+      const database = await client.db("data");
       const collection = database.collection("data");
       const query = { [date]: { $exists: true } };
       const update = { $push: { [date]: { time, count } } };
