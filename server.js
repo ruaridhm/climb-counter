@@ -2,10 +2,9 @@ const formatResponse = require("./formatResponse.js");
 const writeToDb = require("./writeToDb.js");
 
 const sendRequest = async () => {
+  require("dotenv").config();
   const https = require("https");
-  const url =
-    "https://portal.rockgympro.com/portal/public/4755f180aa6b6eadf285e7f33e7668f0/occupancy";
-
+  const url = process.env.getUrl;
   const isOpen = () => {
     const currentTime = new Date();
     const currentDay = currentTime.getDay();
